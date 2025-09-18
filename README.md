@@ -62,6 +62,9 @@ python run_example.py
 ```
 ## Example queries to try
 -"What is the current price of AAPL?"
+
 -"What is Vinamilk's ticker and latest news?"
+
 -"Calculate P/E and ROE for Apple."
+
 -"Show a small price chart for MSFT last 30 days."
