@@ -4,8 +4,8 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-# SERPAPI_KEY = os.environ.get("SERPAPI_KEY")
-SERPAPI_KEY="d836f2f5a4eb9745402cc34aec553a84052c8c4112710812a61d39727ef584af"
+# 
+SERPAPI_KEY = os.environ.get("SERPAPI_KEY")
 SERPAPI_URL = "https://serpapi.com/search.json"
 
 def google_search(query: str):
