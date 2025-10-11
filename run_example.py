@@ -1,9 +1,15 @@
 # run_example.py (placed at project root)
+import sys
+import io
+
+# Fix encoding for Windows console
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+
 from finance_agent.agent import FinancialAgent
 
 def main():
-    agent = FinancialAgent(verbose=True)
-    q = "Tính P/E và ROE của AAPL."
+    agent = FinancialAgent(verbose=False)
+    q = "So sánh giá cổ phiếu của APPLE có với Microsoft"
     res = agent.answer(q)
     print("===== FINAL REPORT =====")
     print(res["report"])

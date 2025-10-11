@@ -238,13 +238,17 @@ class FinancialAgent:
             return [SubQuestion(id=1, question=user_query, depends_on=[])]
 
     def _search_tools(self, resolved_subquestion: str, answered_subquestions: List[dict]) -> List:
-        hits = self.tool_index.similarity_search(resolved_subquestion, k=4)
         tools = []
-        for doc in hits:
-            name = doc.metadata.get("tool_name")
-            meta = self.registry.get(name)
-            if meta:
-                tools.append(meta.func)
+        
+        if self.tool_index is None:
+            logger.warning("Tool index not available, falling back to heuristic search only")
+        else:
+            hits = self.tool_index.similarity_search(resolved_subquestion, k=4)
+            for doc in hits:
+                name = doc.metadata.get("tool_name")
+                meta = self.registry.get(name)
+                if meta:
+                    tools.append(meta.func)
 
         q = resolved_subquestion.lower()
 

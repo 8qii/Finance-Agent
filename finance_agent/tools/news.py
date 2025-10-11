@@ -4,7 +4,8 @@ import requests, os, logging
 
 logger = logging.getLogger(__name__)
 
-SERPAPI_KEY = os.environ.get("SERPAPI_KEY")
+# SERPAPI_KEY = os.environ.get("SERPAPI_KEY")
+SERPAPI_KEY="d836f2f5a4eb9745402cc34aec553a84052c8c4112710812a61d39727ef584af"
 
 def search_news(query: Optional[str] = None, ticker: Optional[str] = None) -> Dict[str, Any]:
     """
